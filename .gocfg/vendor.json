@@ -1,0 +1,9 @@
+{
+  "GitRepos": {
+    "deps/src/github.com/gorilla/websocket": {
+      "URI": "https://github.com/gorilla/websocket",
+      "Ref": "234959944d9cf05229b02e8b386e5cffe1e4e04a"
+    }
+  },
+  "MercurialRepos": {}
+}
