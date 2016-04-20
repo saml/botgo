@@ -25,6 +25,13 @@ type RealTimeStart struct {
 	Bots         []SlackUser `json:"bots"`
 }
 
+type SlackMessage struct {
+	Type      string `json:"type"`
+	UserID    string `json:"user"`
+	ChannelID string `json:"channel"`
+	Text      string `json:"text"`
+}
+
 func main() {
 	var token string
 	flag.StringVar(&token, "token", "", "Slack API token")
@@ -68,8 +75,10 @@ func main() {
 	done := make(chan struct{})
 	go func() {
 		defer close(done)
+
+		var msg SlackMessage
 		for {
-			_, msg, err := c.ReadMessage()
+			err = c.ReadJSON(&msg)
 			if err != nil {
 				log.Print(err)
 				return
