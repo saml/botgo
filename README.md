@@ -1,5 +1,5 @@
 ```
 wgo restore
-wgo build
-./botgo -token <slacktoken>
+make
+./bin/botgo -token <slacktoken>
 ```
